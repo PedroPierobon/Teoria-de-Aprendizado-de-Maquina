@@ -12,7 +12,7 @@ def gradient_descent(X, y, theta, alpha, num_iters):
         # Instructions : Perform a single gradient step on the parameter vector theta
         #
         # Hint: X.shape = (97, 2), y.shape = (97, ), theta.shape = (2, )
-
+        theta = theta - (alpha/m)*np.dot(X.T,(np.dot(X,theta) - y))
 
         # ===========================================================
         # Save the cost every iteration
