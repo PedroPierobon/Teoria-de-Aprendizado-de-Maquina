@@ -50,8 +50,8 @@ X = np.c_[np.ones(m), X]  # Add a column of ones to X
 print('Running gradient descent ...')
 
 # Choose some alpha value
-alpha = 0.03
-num_iters = 400
+alpha = 0.3
+num_iters = 50
 
 # Init theta and Run Gradient Descent
 theta = np.zeros(3)
@@ -70,12 +70,16 @@ print('Theta computed from gradient descent : \n{}'.format(theta))
 # ===================== Your Code Here =====================
 # Recall that the first column of X is all-ones. Thus, it does
 # not need to be normalized.
-price = 0  # You should change this
+house_features = np.array([1650, 3])
+normalized_features = (house_features - mu) / sigma
+normalized_features = np.insert(normalized_features, 0, 1)
+price = np.dot(normalized_features, theta)  # You should change this
 
 
 # ==========================================================
 
-print('Predicted price of a 1650 sq-ft, 3 br house (using gradient descent) : {:0.3f}'.format(price))
+print(
+    'Predicted price of a 1650 sq-ft, 3 br house (using gradient descent) : {:0.3f}'.format(price))
 
 input('Program paused. Press ENTER to continue')
 
@@ -109,11 +113,13 @@ print('Theta computed from the normal equations : \n{}'.format(theta))
 
 # Estimate the price of a 1650 sq-ft, 3 br house
 # ===================== Your Code Here =====================
-price = 0  # You should change this
+house_features = np.array([1, 1650, 3])
+price = np.dot(house_features, theta)
 
 
 # ==========================================================
 
-print('Predicted price of a 1650 sq-ft, 3 br house (using normal equations) : {:0.3f}'.format(price))
+print(
+    'Predicted price of a 1650 sq-ft, 3 br house (using normal equations) : {:0.3f}'.format(price))
 
 input('ex1_multi Finished. Press ENTER to exit')
