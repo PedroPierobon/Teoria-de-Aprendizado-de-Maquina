@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from featureNormalize import *
 from gradientDescent import *
-from normalEqn import *
+# from normalEqn import *
 
 plt.ion()
 
@@ -81,11 +81,11 @@ price = np.dot(normalized_features, theta)  # You should change this
 print(
     'Predicted price of a 1650 sq-ft, 3 br house (using gradient descent) : {:0.3f}'.format(price))
 
-input('Program paused. Press ENTER to continue')
+#input('Program paused. Press ENTER to continue')
 
 # ===================== Part 3: Normal Equations =====================
 
-print('Solving with normal equations ...')
+#print('Solving with normal equations ...')
 
 # ===================== Your Code Here =====================
 # Instructions : The following code computes the closed form
@@ -98,28 +98,28 @@ print('Solving with normal equations ...')
 #
 
 # Load data
-data = np.loadtxt('ex1data2.txt', delimiter=',', dtype=np.int64)
-X = data[:, 0:2]
-y = data[:, 2]
-m = y.size
+#data = np.loadtxt('ex1data2.txt', delimiter=',', dtype=np.int64)
+#X = data[:, 0:2]
+#y = data[:, 2]
+#m = y.size
 
 # Add intercept term to X
-X = np.c_[np.ones(m), X]
+#X = np.c_[np.ones(m), X]
 
-theta = normal_eqn(X, y)
+#theta = normal_eqn(X, y)
 
 # Display normal equation's result
-print('Theta computed from the normal equations : \n{}'.format(theta))
+#print('Theta computed from the normal equations : \n{}'.format(theta))
 
 # Estimate the price of a 1650 sq-ft, 3 br house
 # ===================== Your Code Here =====================
-house_features = np.array([1, 1650, 3])
-price = np.dot(house_features, theta)
+# house_features = np.array([1, 1650, 3])
+# price = np.dot(house_features, theta)
 
 
 # ==========================================================
 
-print(
-    'Predicted price of a 1650 sq-ft, 3 br house (using normal equations) : {:0.3f}'.format(price))
+# print(
+#     'Predicted price of a 1650 sq-ft, 3 br house (using normal equations) : {:0.3f}'.format(price))
 
 input('ex1_multi Finished. Press ENTER to exit')
